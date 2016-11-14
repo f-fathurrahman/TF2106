@@ -1,0 +1,122 @@
+\documentclass[10pt,english,twocolumn]{extarticle}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[latin9]{inputenc}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.0cm,bmargin=1.5cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amstext}
+%\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{mathrsfs}
+
+\usepackage{unicode-math}
+\setmainfont{Linux Libertine}
+\setmathfont{XITS Math}
+%\setmathfont[version=setB,StylisticSet=1]{XITS Math}
+
+\usepackage{babel}
+
+\newcommand{\dd}{\textnormal{d}}
+
+\begin{document}
+
+\title{Magnetostatik}
+\author{Fadjar Fathurrahman}
+\date{2016}
+\maketitle
+
+\section{Gaya magnetik}
+
+Gaya magnet yang dirasakan oleh suatu muatan $Q$ yang bergerak dengan kecepatan $\mathbf{v}$
+pada suatu medan magnet $\mathbf{B}$ adalah
+\begin{equation}\label{eq:LorentzEq}
+\mathbf{F}_{\textnormal{mag}} = Q(\mathbf{v}\times\mathbf{B})
+\end{equation}
+Persamaan \ref{eq:LorentzEq} dikenal dengan nama hukum gaya Lorentz.
+Jika muatan juga dikenai medan listrik $\mathbf{E}$ selain medan magnet $\mathbf{B}$,
+maka total gaya pada muatan $Q$ adalah:
+\begin{equation}
+\mathbf{F} = Q\left[ \mathbf{E} + (\mathbf{v}\times\mathbf{B}) \right]
+\end{equation}
+
+Jika $\mathbf{Q}$ bergerak sejauh $\dd \mathbf{l} = \mathbf{v}\, \dd t$ maka kerja yang
+dilakukan adalah
+\begin{eqnarray*}
+\dd W_{\textnormal{mag}} & = & \mathbf{F}_{\textnormal{mag}} \cdot \dd \mathbf{l} \\
+ & = & Q (\mathbf{v} \times \mathbf{B}) \cdot \mathbf{v}\, \dd t \\
+ & = & 0
+\end{eqnarray*}
+\textit{Gaya magnetik tidak melakukan kerja}.
+
+\section{Arus}
+
+Arus didefinisikan sebagai jumlah muatan yang mengalir persatuan waktu pada
+suatu titik. Arus diukur dalam satuan coulomb-per-detik atau ampere:
+\begin{equation}
+1\,\textnormal{A} = 1\,\textnormal{C/s}
+\end{equation}
+
+Gaya magnetik pada suatu segmen kawat berarus adalah:
+\begin{eqnarray*}
+\mathbf{F}_{\textnormal{mag}} & = & \int (\mathbf{v} \times \mathbf{B})\,\dd q \\
+& = & \int (\mathbf{v} \times \mathbf{B})\, \lambda\, \dd l \\
+& = & \int (\mathbf{I} \times \mathbf{B})\,\dd l
+\end{eqnarray*}
+Karena arus $\mathbf{I}$ dan segment kawat $\dd\mathbf{l}$ memiliki arah yang sama,
+\begin{equation}
+\mathbf{F}_{\textnormal{mag}} = \int I (\dd \mathbf{l} \times \mathbf{B})
+\end{equation}
+
+Arus yang mengalir pada suatu permukaan dapat dideskripsikan dengan rapat arus
+permukaan, $\mathbf{K}$.
+Jika rapat muatan permukaan adalah $\sigma$ dan kecepatannya adalah $\mathbf{v}$, maka
+rapat arus permukaan dapat dinyatakan dengan
+\begin{equation}
+\mathbf{K} = \sigma \mathbf{v}
+\end{equation}
+Maka, gaya magnet pada arus permukaan adalah
+\begin{equation}
+\mathbf{F}_{\textnormal{mag}} = \int (\mathbf{v} \times \mathbf{B})\,\sigma\,\dd S
+\end{equation}
+
+Untuk arus yang mengalir pada suatu volume dapat dideskripsikan dengan rapat muatan
+volume, $\mathbf{J}$. Jika rapat muatan volume adalah $\rho$ dan kecepatannya adalah
+$\mathbf{v}$, maka
+\begin{equation}
+\mathbf{J} = \rho \mathbf{v}
+\end{equation}
+Gaya magnetik pada arus volume adalah
+\begin{eqnarray}
+\mathbf{F}_{\textnormal{mag}} & = & \int (\mathbf{v}\times\mathbf{B})\,\rho\,\dd V \\
+& = & \int (\mathbf{J}\times\mathbf{B})
+\end{eqnarray}
+
+\textbf{Persamaan kontinuitas}
+
+Arus total yang mengalir melalui suatu permukaan $\mathcal{S}$ adalah
+\begin{equation}
+I = \int_{\mathcal{S}} J\, \dd A_{\bot} = \int_{\mathcal{S}} \mathbf{J} \cdot \dd \mathbf{S}
+\end{equation}
+Persamaan kontinuitas:
+\begin{equation}
+\nabla \cdot \mathbf{J} = - \frac{\partial \rho}{\partial t}
+\end{equation}
+
+\section{Hukum Biot-Savart}
+Medan magnet dari arus tunak pada garis adalah:
+\begin{equation}
+\mathbf{B}(\mathbf{r}) = \frac{\mu_0}{4\pi} \frac{\mathbf{I}\times\hat{\mathscr{r}}}{\mathscr{r}^2}
+\end{equation}
+
+\begin{equation}
+\mathcal{abcdefghijklmnopqrstuvwxyz}
+\end{equation}
+
+\begin{equation}
+\mathscr{abcdefghijklmnopqrstuvwxyz}
+\end{equation}
+
+\end{document}
