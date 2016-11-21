@@ -1,4 +1,4 @@
-\documentclass[10pt,english,twocolumn]{extarticle}
+\documentclass[10pt,english,twocolumn,fleqn]{extarticle}
 
 %\usepackage[T1]{fontenc}
 %\usepackage[latin9]{inputenc}
@@ -7,99 +7,57 @@
 \geometry{verbose,tmargin=1.0cm,bmargin=1.5cm,lmargin=0.8cm,rmargin=0.8cm}
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
+\usepackage{amsmath}
 \usepackage{amstext}
-%\usepackage{amsfonts}
 \usepackage{amsbsy}
 \usepackage{mathrsfs}
+\usepackage{graphicx}
 
-\usepackage{unicode-math}
-\setmainfont{Linux Libertine}
-\setmathfont{XITS Math}
-%\setmathfont[version=setB,StylisticSet=1]{XITS Math}
+%\usepackage{unicode-math}
+%\setmainfont{Linux Libertine}
+%\setmathfont{XITS Math}
+
+\usepackage[libertine]{newtxmath}
+\usepackage[no-math]{fontspec}
+\setmainfont{Linux Libertine O}
 
 \usepackage{babel}
 
-\newcommand{\dd}{\textnormal{d}}
+\input{../common/shortcuts}
 
 \begin{document}
 
-\title{Magnetostatik}
+\title{Catatan Kuliah TF2106: Magnetostatika}
 \author{Fadjar Fathurrahman}
 \date{2016}
 \maketitle
 
 \section{Gaya magnetik}
-
-Gaya magnet yang dirasakan oleh suatu muatan $Q$ yang bergerak dengan kecepatan $\mathbf{v}$
-pada suatu medan magnet $\mathbf{B}$ adalah
-\begin{equation}\label{eq:LorentzEq}
+Hukum gaya Lorentz:
+\begin{equation}
 \mathbf{F}_{\textnormal{mag}} = Q(\mathbf{v}\times\mathbf{B})
 \end{equation}
-Persamaan \ref{eq:LorentzEq} dikenal dengan nama hukum gaya Lorentz.
-Jika muatan juga dikenai medan listrik $\mathbf{E}$ selain medan magnet $\mathbf{B}$,
-maka total gaya pada muatan $Q$ adalah:
-\begin{equation}
-\mathbf{F} = Q\left[ \mathbf{E} + (\mathbf{v}\times\mathbf{B}) \right]
-\end{equation}
 
-Jika $\mathbf{Q}$ bergerak sejauh $\dd \mathbf{l} = \mathbf{v}\, \dd t$ maka kerja yang
-dilakukan adalah
+Gaya magnetik tidak melakukan kerja:
 \begin{eqnarray*}
 \dd W_{\textnormal{mag}} & = & \mathbf{F}_{\textnormal{mag}} \cdot \dd \mathbf{l} \\
  & = & Q (\mathbf{v} \times \mathbf{B}) \cdot \mathbf{v}\, \dd t \\
  & = & 0
 \end{eqnarray*}
-\textit{Gaya magnetik tidak melakukan kerja}.
 
 \section{Arus}
+Arus listrik:
+\begin{equation*}
+I = \frac{\delta Q}{\delta t}
+\end{equation*}
 
-Arus didefinisikan sebagai jumlah muatan yang mengalir persatuan waktu pada
-suatu titik. Arus diukur dalam satuan coulomb-per-detik atau ampere:
-\begin{equation}
-1\,\textnormal{A} = 1\,\textnormal{C/s}
-\end{equation}
-
-Gaya magnetik pada suatu segmen kawat berarus adalah:
-\begin{eqnarray*}
-\mathbf{F}_{\textnormal{mag}} & = & \int (\mathbf{v} \times \mathbf{B})\,\dd q \\
-& = & \int (\mathbf{v} \times \mathbf{B})\, \lambda\, \dd l \\
-& = & \int (\mathbf{I} \times \mathbf{B})\,\dd l
-\end{eqnarray*}
-Karena arus $\mathbf{I}$ dan segment kawat $\dd\mathbf{l}$ memiliki arah yang sama,
-\begin{equation}
-\mathbf{F}_{\textnormal{mag}} = \int I (\dd \mathbf{l} \times \mathbf{B})
-\end{equation}
-
-Arus yang mengalir pada suatu permukaan dapat dideskripsikan dengan rapat arus
-permukaan, $\mathbf{K}$.
-Jika rapat muatan permukaan adalah $\sigma$ dan kecepatannya adalah $\mathbf{v}$, maka
-rapat arus permukaan dapat dinyatakan dengan
-\begin{equation}
-\mathbf{K} = \sigma \mathbf{v}
-\end{equation}
-Maka, gaya magnet pada arus permukaan adalah
-\begin{equation}
-\mathbf{F}_{\textnormal{mag}} = \int (\mathbf{v} \times \mathbf{B})\,\sigma\,\dd S
-\end{equation}
-
-Untuk arus yang mengalir pada suatu volume dapat dideskripsikan dengan rapat muatan
-volume, $\mathbf{J}$. Jika rapat muatan volume adalah $\rho$ dan kecepatannya adalah
-$\mathbf{v}$, maka
-\begin{equation}
-\mathbf{J} = \rho \mathbf{v}
-\end{equation}
-Gaya magnetik pada arus volume adalah
+Gaya magnet pada arus garis, arus permukaan, dan arus volume
 \begin{eqnarray}
-\mathbf{F}_{\textnormal{mag}} & = & \int (\mathbf{v}\times\mathbf{B})\,\rho\,\dd V \\
-& = & \int (\mathbf{J}\times\mathbf{B})
+\mathbf{F}_{\textnormal{mag}} = \int (\mathbf{v} \times \mathbf{B})\,\lambda\,\dd l &\,& \textnormal{(garis)} \\
+\mathbf{F}_{\textnormal{mag}} = \int (\mathbf{v} \times \mathbf{B})\,\sigma\,\dd a &\,& \textnormal{(permukaan)} \\
+\mathbf{F}_{\textnormal{mag}} = \int (\mathbf{v}\times\mathbf{B})\,\rho\,\dd \tau &\,& \textnormal{(volume)}
 \end{eqnarray}
 
-\textbf{Persamaan kontinuitas}
-
-Arus total yang mengalir melalui suatu permukaan $\mathcal{S}$ adalah
-\begin{equation}
-I = \int_{\mathcal{S}} J\, \dd A_{\bot} = \int_{\mathcal{S}} \mathbf{J} \cdot \dd \mathbf{S}
-\end{equation}
 Persamaan kontinuitas:
 \begin{equation}
 \nabla \cdot \mathbf{J} = - \frac{\partial \rho}{\partial t}
@@ -108,15 +66,135 @@ Persamaan kontinuitas:
 \section{Hukum Biot-Savart}
 Medan magnet dari arus tunak pada garis adalah:
 \begin{equation}
-\mathbf{B}(\mathbf{r}) = \frac{\mu_0}{4\pi} \frac{\mathbf{I}\times\hat{\mathscr{r}}}{\mathscr{r}^2}
+\mathbf{B}(\mathbf{r}) = \int \frac{\mu_0}{4\pi} \frac{\mathbf{I}\times\hat{\brc}}{\rc^2}\,\dd l'
+\end{equation}
+Konstanta $\mu_{0} = 4\pi\times10^{-7}\,\mathrm{N/A^2}$ adalah permeabilitas vakum.
+Satuan dari $\mathbf{B}$ adalah newton per ampere-meter atau tesla.
+
+Untuk arus permukaan hukum Biot-Savart dinyatakan sebagai:
+\begin{equation}
+\mathbf{B}(\mathbf{r}) = \int \frac{\mu_0}{4\pi} \frac{\mathbf{K}(\mathbf{r}')\times\hat{\brc}}{\rc^2}\,\dd l'
+\end{equation}
+Sedangkan untuk arus volume hukum Biot-Savart dinyatakan sebagai:
+\begin{equation}
+\mathbf{B}(\mathbf{r}) = \int \frac{\mu_0}{4\pi} \frac{\mathbf{J}(\mathbf{r}')\times\hat{\brc}}{\rc^2}\,\dd l'
 \end{equation}
 
+\section{Divergensi dan curl dari medan magnet}
+Divergensi dari medan magnet adalah nol.
 \begin{equation}
-\mathcal{abcdefghijklmnopqrstuvwxyz}
+\nabla \cdot \mathbf{B} = 0
 \end{equation}
 
+Curl dari $\mathbf{B}$ adalah
 \begin{equation}
-\mathscr{abcdefghijklmnopqrstuvwxyz}
+\nabla \times \mathbf{B} = \mu_0 \mathbf{J}
 \end{equation}
+Persamaan ini juga dikenal dengan nama Hukum Ampere.
+Dalam bentuk integral Hukum Ampere dapat dituliskan sebagai:
+\begin{equation}
+\oint \mathbf{B}\cdot\dd\mathbf{l} = \mu_0 I_{\mathrm{enc}}
+\end{equation}
+
+
+\section{Potensial vektor magnetik}
+Potensial vektor magnetik $\mathbf{A}$ diperoleh dari persamaan
+\begin{equation}
+\mathbf{B} = \nabla \times \mathbf{A}
+\end{equation}
+Persamaan ini memberikan curl dari $\mathbf{A}$ akan tetapi tidak memberikan
+informasi mengenai divergensi dari $\mathbf{A}$. Kita bebas memilih nilai divergensi
+$\mathbf{A}$ dan nol merupakan pilihan yang paling sederhana.
+\begin{equation}
+\nabla \cdot \mathbf{A} = 0
+\end{equation}
+Dengan pemilihan ini, Hukum Ampere dapat dituliskan menjadi
+\begin{equation}
+\nabla^2 \mathbf{A} = -\mu_0 \mathbf{J}
+\end{equation}
+Dengan asumsi bahwa $\mathbf{J}$ mendekati nol pada tak hingga, dapat diperoleh
+solusi
+\begin{equation}
+\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{J}(\mathbf{r}')}{\rc}\,\dd \tau'
+\end{equation}
+
+Untuk arus garis:
+\begin{equation}
+\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{I}}{\rc}\, \dd l' =
+\frac{\mu_0 I}{4\pi} \int \frac{1}{\rc}\,\dd \mathbf{l}'
+\end{equation}
+sedangkan untuk arus permukaan:
+\begin{equation}
+\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int \frac{\mathbf{K}}{\rc}\, \dd a'.
+\end{equation}
+
+\section{Syarat-syarat batas}
+Komponen medan magnetik yang tegak lurus terhadap permukaan:
+\begin{equation}
+B^{\bot}_{\mathrm{above}} = B^{\bot}_{\mathrm{below}}
+\end{equation}
+
+Komponen medan magnetik yang sejajar dengan permukaan:
+\begin{equation}
+\mathbf{B}^{\parallel}_{\mathrm{above}} - \mathbf{B}^{\parallel}_{\mathrm{below}} = \mu_0 K
+\end{equation}
+
+Dua kondisi tersebut dapat dituliskan sebagai:
+\begin{equation}
+\mathbf{B}_{\mathrm{above}} - \mathbf{B}_{\mathrm{below}} = \mu_0 \left( \mathbf{K} \times \hat{n} \right)
+\end{equation}
+
+Potensial vektor bersifat kontinu di semua perbatasan.
+\begin{equation}
+\mathbf{A}_{\mathrm{above}} = \mathbf{A}_{\mathrm{below}}
+\end{equation}
+
+
+\section{Ekspansi multipol dan potensial vektor}
+
+Dengan menggunakan ekspansi multipol:
+\begin{equation}
+\frac{1}{\rc} = \frac{1}{r} \sum_{n=0}^{\infty} \left(\frac{r'}{r}\right)^{n}
+P_{n}(\cos\alpha)
+\end{equation}
+dengan $\alpha$ merupakan sudut antara $\mathbf{r}$ dan $\mathbf{r}'$
+
+Potensial vektor dapat dituliskan menjadi:
+\begin{align*}
+\mathbf{A}(\mathbf{r}) & = \frac{\mu_0 I}{4\pi} \oint \frac{1}{\rc}\dd\mathbf{l}' \\
+& = \frac{\mu_0 I}{4\pi} \frac{1}{r^{n+1}} \oint (r')^{n} P_{n}(\cos\alpha)\,\dd\mathbf{l}'
+\end{align*}
+Tinjau suku-suku $1/r^{n}$:
+\begin{align*}
+\mathbf{A}_{\mathrm{mon}}(\mathbf{r}) & = \frac{\mu_0 I}{4\pi}\frac{1}{r}\oint\dd\mathbf{l}' \\
+\mathbf{A}_{\mathrm{dip}}(\mathbf{r}) & = \frac{\mu_0 I}{4\pi}\frac{1}{r^2}
+\oint r'\,\cos\,\alpha\,\dd\mathbf{l}' \\
+\mathbf{A}_{\mathrm{quad}}(\mathbf{r}) & = \frac{\mu_0 I}{4\pi}
+\end{align*}
+
+Suku monopol magnetik selalu bernilai $\mathbf{0}$, karena
+\begin{equation}
+\oint \dd\mathbf{l}' = \mathbf{0}
+\end{equation}
+
+Suku dominan adalah dipol
+\begin{equation}
+\mathbf{A}_{\mathbf{dip}}(\mathbf{r}) = \frac{\mu_0 I }{4\pi r^2} \oint r' \cos\,\alpha\,\dd\mathbf{l}'
+= \frac{\mu_0 I}{4\pi r^2} \oint ( \hat{\mathbf{r}} \cdot \mathbf{r}' )\,\dd\mathbf{l}'
+\end{equation}
+dengan menggunakan
+\begin{equation}
+\oint ( \hat{\mathbf{r}} \cdot \mathbf{r}' )\,\dd\mathbf{l}' = -\hat{\mathbf{r}}\times\int\dd\mathbf{a}'
+\end{equation}
+Maka persamaan untuk dipol dapat dituliskan menjadi:
+\begin{equation}
+\mathbf{A}_{\mathrm{dip}} = \frac{\mu_0}{4\pi}\frac{\mathbf{m} \times \hat{\mathbf{r}}}{r^2}
+\end{equation}
+di mana $\mathbf{m}$ adalah momen dipol magnetik:
+\begin{equation}
+\mathbf{m} \equiv I\int\dd\mathbf{a} = I\mathbf{a}
+\end{equation}
+
+
 
 \end{document}
