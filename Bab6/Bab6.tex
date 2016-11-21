@@ -1,0 +1,138 @@
+\documentclass[10pt,english,twocolumn,fleqn]{extarticle}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[latin9]{inputenc}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.0cm,bmargin=1.5cm,lmargin=0.8cm,rmargin=0.8cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+
+%\usepackage{unicode-math}
+%\setmainfont{Linux Libertine}
+%\setmathfont{XITS Math}
+
+\usepackage[libertine]{newtxmath}
+\usepackage[no-math]{fontspec}
+\setmainfont{Linux Libertine O}
+
+\usepackage{babel}
+
+\input{../common/shortcuts}
+
+\begin{document}
+
+\title{Catatan Kuliah TF2106: Medan Magnet dalam Material}
+\author{Fadjar Fathurrahman}
+\date{2016}
+\maketitle
+
+\section{Magnetisasi: diamagnet, paramagnet, dan feromagnet}
+Jika kita mengamati material magnetik pada skala atomik, kita akan menemukan arus
+listrik yang disebabkan oleh elektron yang mengorbit inti atom dan berputar
+pada sumbunya. Untuk keperluan makroskopik, loop arus tersebut dapat dianggap
+sebagai dipol magnetik. Pada keadaan normal, dipol ini saling menghilangkan satu
+sama lainnya karena orientasi acak dari atom. Akan tetapi, ketika suatu medan
+magnetik diberikan, akan terdapat penjajaran dipol-dipol, dan material tersebut
+menjadi termagnetisasi atau terpolarisasi secara magnetik.
+
+Berbeda dengan fenomena polarisasi listrik, di mana dipol listrik hampir selalu mengarah
+ke arah yang sama dengan medan listrik $\mathbf{E}$, pada magnetisasi beberapa
+material akan menghasilkan magnetisasi searah dengan $\mathbf{B}$.
+Tipe material ini dinamakan paramagnet.
+Beberapa material akan menghasilkan magnetisasi berlawanan arah dan tipe material
+ini dinamakan diamagnet.
+Ketika medan magnet dihilangkan, maka magnetisasi dari paramagnet dan diamagnet
+akan hilang. Jenis material yang disebut feromagnet, tetap memiliki magnetisasi
+meskipun medan magnet telah dihilangkan.
+
+\section{Torsi dan gaya pada dipol magnetik}
+
+Torsi $\mathbf{N}$ pada dipol magnetik dapat dituliskan sebagai:
+\begin{equation}
+\mathbf{N} = \mathbf{m} \times \mathbf{B}
+\end{equation}
+
+Untuk loop arus yang sangat kecil, gaya yang dirasakan oleh dipol
+adalah
+\begin{equation}
+\mathbf{F} = \nabla(\mathbf{m}\cdot\mathbf{B})
+\end{equation}
+
+\section{Magnetisasi}
+Magnetisasi didefinisikan sebagai momen dipol magnetik per satuan volume.
+Magnetisasi disimbolkan dengan $\mathbf{M}$ dan memainkan peran analog
+dengan polarisasi $\mathbf{P}$ pada elektrostatika.
+
+\section{Medan dari suatu material termagnetisasi}
+Dalam suatu material yang termagnetisasi, tiap elemen volume $\dd\tau'$
+memiliki moment dipol $\mathbf{M}\dd\tau'$, sehingga total potensial vektor
+dari material ini adalah
+\begin{equation}
+\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi} \int
+\frac{\mathbf{M}(\mathbf{r}')\times\hat{\brc}}{\rc^2}\dd\tau'
+\end{equation}
+Setelah menggunakan beberapa manipulasi matematis, persamaan ini dapat dituliskan
+menjadi
+\begin{equation}\label{eq:magnetized}
+\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi}\int_{\mathcal{V}}\frac{\mathbf{J}_{b}(\mathbf{r}')}{\rc}\dd\tau'
++ \frac{\mu_0}{4\pi}\oint_{\mathcal{S}} \frac{\mathbf{K}_b(\mathbf{r}')}{\rc}\dd a'
+\end{equation}
+dengan $\mathbf{J}_b$ dan $\mathbf{K}_b$ menyatakan densitas arus terikat (\textit{bound current})
+pada volume dan permukaan dari material yang bersangkutan.
+\begin{align}
+\mathbf{J}_b & = \nabla \times \mathbf{M} \\
+\mathbf{K}_b & = \mathbf{M} \times \hat{\mathbf{n}}
+\end{align}
+
+Arti dari persamaan \ref{eq:magnetized}: efek dari magnetisasi adalah menghasilkan
+arus terikat dengan kerapatan $\mathbf{J}_b = \nabla\times\mathbf{M}$ di dalam material dan
+$\mathbf{K}_b = \mathbf{M}\times\hat{\mathbf{n}}$ pada permukaan material.
+
+\section{Medan bantu (\textit{auxiliary field}) H}
+Total kerapatan arus dapat dituliskan sebagai:
+\begin{equation}
+\mathbf{J} = \mathbf{J}_b + \mathbf{J}_f
+\end{equation}
+Hukum Ampere dapat dituliskan menjadi
+\begin{equation}
+\nabla \times \mathbf{B} = \mu_0 \mathbf{J} = \mu_0 (\mathbf{J}_b + \mathbf{J}_f)
+= \mu_0 \left( (\nabla \times \mathbf{M}) + \mathbf{J}_f \right)
+\end{equation}
+atau:
+\begin{equation}
+\nabla\times\left( \frac{\mathbf{B}}{\mu_0} - \mathbf{M} \right) = \mathbf{J}_f
+\end{equation}
+Dengan menggunakan definisi
+\begin{equation}
+\mathbf{H} \equiv \frac{\mathbf{B}}{\mu_0} - \mathbf{M},
+\end{equation}
+Hukum Ampere dapat dituliskan sebagai
+\begin{equation}
+\nabla \times \mathbf{H} = \mathbf{J}_f
+\end{equation}
+atau dalam bentuk integral
+\begin{equation}
+\oint \mathbf{H}\cdot\dd\mathbf{l} = I_{f,\mathrm{enc}}
+\end{equation}
+di mana $I_{f,\mathrm{enc}}$ adalah arus bebas yang melalui loop Amperian.
+
+\section{Syarat-syarat batas}
+\begin{equation}
+H^{\bot}_{\mathrm{above}} - H^{\bot}_{\mathrm{below}} = -\left( M^{\bot}_{above}
+- M^{\bot}_{below} \right)
+\end{equation}
+
+\begin{equation}
+\mathbf{H}^{\bot}_{\mathrm{parallel}} - \mathbf{H}^{\parallel}_{\mathrm{below}} =
+\mathbf{K}_f \times \hat{\mathbf{n}}
+\end{equation}
+
+
+
+\end{document}
